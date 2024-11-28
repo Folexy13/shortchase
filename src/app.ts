@@ -5,14 +5,15 @@ import { connectDB } from "./config/db.config"
 import { createServer } from "http";
 import { Server } from "socket.io";
 import path from "path";
-
+import * as dotenv from "dotenv"
+dotenv.config()
 //Server Setup
 const app:Application = express()
 const port:string = process.env.PORT??"8002"
 
 
 //dbconnection
-connectDB()
+connectDB(process.env.DB_URI??"mongodb://localhost:27017/dummy")
 
 // Middlewares
 app.use(cors())

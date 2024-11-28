@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectDB = connectDB;
 const mongoose_1 = __importDefault(require("mongoose"));
-function connectDB() {
+function connectDB(uri) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield mongoose_1.default.connect('mongodb://localhost:27017/dummy');
+            yield mongoose_1.default.connect(uri);
             console.log("DB connected succefully");
         }
         catch (error) {

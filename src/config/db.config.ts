@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 
 
-export async  function connectDB() {
+export async  function connectDB(uri:string) {
  try {
-    await mongoose.connect('mongodb://localhost:27017/dummy')
+    await mongoose.connect(uri)
     console.log("DB connected succefully")
  } catch (error) {
     throw(error)
